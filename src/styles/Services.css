@@ -1,0 +1,45 @@
+
+
+.services-page {
+	/*margin-top: 5rem;
+    padding: 20px;*/
+	text-align: center;
+}
+.services-container {
+	background: url("https://asset.gecdesigns.com/img/wallpapers/blue-purple-beautiful-scenery-ultra-hd-wallpaper-4k-sr10012421-1706505497434-cover.webp")
+		no-repeat center center/cover;
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: #f9f9f900; /* Optional: background color */
+	margin-bottom: 20px; /* Space between subtitle and cards */
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Center content vertically */
+	align-items: center; /* Center content horizontally */
+	margin: 0 auto;
+	z-index: 10;
+}
+.services-container::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.498);
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+}
+.subtitle {
+	margin-top: 10px;
+	z-index: 100;
+	font-size: 16px;
+	color: #cbcbcb; /* Adjust color as needed */
+}
+.services-page h1 {
+	color: white;
+	font-size: 80px;
+	z-index: 100;
+}

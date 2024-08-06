@@ -1,0 +1,205 @@
+.bg {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.bg h1 {
+	font-size: 17rem;
+	filter: opacity(1);
+}
+
+.subContent {
+	margin: 1rem 5rem;
+	margin-top: 10px;
+	font-size: 16px;
+	color: #cbcbcb; /* Adjust color as needed */
+}
+.titleContainer h1 {
+	color: rgba(0, 0, 0, 0.837);
+	font-size: 80px;
+}
+
+/*.title-container:before{
+    background: #c3ccea;
+    filter: url(#f);
+}
+.title-container:before, .title-container:after{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    --grad: radial-gradient(at 50%, red, rgba(255, 0, 0, 0.3) 55%, transparent 80%);
+    --mask: var(--grad), var(--grad);
+    -webkit-mask: var(--mask);
+    -webkit-mask-composite: source-in;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    -webkit-mask-composite: source-in, xor;
+    mask-composite: intersect;
+    mix-blend-mode: unset;
+    content: "";
+}
+.title-container:after{
+    background: linear-gradient(
+        90deg, #ffd54a 20%, #fd6e75, #ffe9c8);
+}*/
+.titleContainer {
+	height: 100vh;
+	width: 75vw;
+	margin: 0 auto;
+	padding: 2rem;
+	box-sizing: border-box;
+	background: linear-gradient(
+		to top,
+		rgba(249, 249, 249, 0) 0%,
+		/* Fully opaque at the bottom */ rgba(255, 255, 255, 0) 10%,
+		rgb(255, 255, 255) 25%,
+		/* Slightly transparent at one-quarter height */ rgb(255, 255, 255) 50%,
+		/* More transparent at half height */ rgb(255, 255, 255) 75%,
+		/* Even more transparent at three-quarters height */ rgb(255, 255, 255)
+			100% /* Fully transparent at the top */
+	);
+    z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	margin-bottom: 100px;
+}
+
+.featureSection {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 70px 20px; /* Add padding for spacing */
+	overflow: hidden; /* Ensure content within the section stays within bounds */
+	min-height: 650px; /* Set a minimum height */
+	/*border-bottom: 1px solid black; /* Black border on bottom */
+
+	/* Centering the container */
+	margin: 40px auto; /* Auto margin left and right */
+	max-width: 1430px; /* Optional: Set a maximum width for the container */
+}
+
+.featureItem,
+.large {
+    flex: 1 1 300px; /* Regular and larger size box, adjust width as needed */
+    padding: 40px;
+    background-color: #282c34; /* Match background color */
+    background: linear-gradient(
+        0deg,
+        rgba(40, 44, 52, 1) 0%,
+        rgba(81, 64, 96, 0.886) 100%
+    ); /* Gradient background */
+    background-size: cover; /* Ensure the background image covers the entire div */
+    background-position: center; /* Center the background image */
+    box-shadow: 0 7px 10px 1px #00000088; /* Initial box shadow */
+    border-radius: 0.7rem; /* Rounded corners */
+    backdrop-filter: blur(30px); /* Blur effect */
+    -webkit-backdrop-filter: blur(50px); /* Blur effect for Safari and others*/
+    transition: all 0.1s; /* Smooth transition */
+    position: relative; /* For pseudo-element positioning */
+    max-height: 450px;
+    min-height: 400px;
+}
+
+.featureItem.large {
+	flex: 2 1 480px;
+	border-radius: 10px;
+}
+
+.featureItem.large video {
+	width: 100%;
+	height: 100%;
+	object-fit: contain; /* Ensure video covers the container without distortion */
+	border-radius: 1rem; /* Match border radius */
+	padding: 30px 0px;
+	pointer-events: none;
+}
+
+.featureItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-size: cover;
+    background-position: center;
+	
+}
+.featureItem .title,
+.featureItem .subtitle {
+	font-weight: bold;
+	transition: color 0.3s;
+	color: #e2e2e2;
+	margin: 0; /* Remove margin for consistent spacing */
+	padding-bottom: 0.5rem; /* Padding below text */
+	position: relative; /* For pseudo-element positioning */
+}
+
+.featureItem .subtitle {
+	font-size: 1.7em;
+	color: #333;
+}
+.descriptionBlock {
+	grid-column-gap: 12px;
+	grid-row-gap: 16px;
+	align-items: center;
+	margin-top: 6px;
+	font-size: 14px;
+	display: flex;
+}
+.featureItem .description,
+.descriptionBlock {
+	margin: 0; /* Remove margin to control spacing manually */
+	padding-top: 0.5rem; /* Adjust top padding for spacing */
+	color: #d4d4d4;
+	font-size: 13px;
+}
+
+.featureItem:hover,
+.featureItem.large:hover {
+	/*filter: brightness(1.1); /* Brighten on hover */
+	/* box-shadow: 0 5px 10px 5px #000000aa; /* Box shadow on hover */
+	transform: translateY(-4px);
+}
+
+.featureItem::before,
+.featureItem.large::before {
+	position: absolute;
+	content: "";
+	box-shadow: 0 0 100px 40px #ffffff31;
+	top: -10%;
+	left: -200%;
+	transform: rotate(-45deg);
+	filter: blur(50px);
+	height: 50rem;
+	transition: 0.7s all;
+
+}
+
+.featureItem:hover::before,
+.featureItem.large:hover::before {
+	filter: blur(0);
+	top: -100%;
+	left: 200%;
+}
+
+.tag {
+	font-style: italic;
+	color: #666;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	padding: 1rem;
+}
+
+.main .tokenImage {
+	border-radius: 0.5rem;
+	max-width: 100%;
+	height: 250px;
+	object-fit: cover;
+}

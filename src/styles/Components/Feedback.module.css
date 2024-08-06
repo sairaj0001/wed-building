@@ -1,0 +1,180 @@
+.FeedbackContainer {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    z-index: 100;
+    background: linear-gradient(
+		to top,
+		rgb(249, 249, 249) 0%,/* Fully opaque at the bottom */ 
+        rgb(255, 255, 255) 10%,
+		rgb(255, 255, 255) 25%,/* Slightly transparent at one-quarter height */
+        rgb(255, 255, 255) 50%,/* More transparent at half height */
+        rgba(255, 255, 255, 0.925) 75%,/* Even more transparent at three-quarters height */
+        rgba(255, 255, 255, 0)100% /* Fully transparent at the top */
+	);
+}
+
+.FbTitle {
+    font-size: 4rem;
+    padding: 1.5rem;
+}
+
+.wrapper {
+    width: 80%;
+    position: relative;
+}
+.name{
+	font-size: 0.8rem;
+	font-weight: lighter;
+	color: rgb(255, 255, 255);
+	margin-left: 1rem;
+}
+.wrapper .carousel {
+	padding: 2rem 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+.carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+.carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel .card {
+    scroll-snap-align: start;
+    height: 24rem;
+    list-style: none;
+    cursor: pointer;
+    flex-direction: column; 
+    border-radius: 8px;
+    perspective: 1000px;
+    background-color: transparent;
+}
+.card .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.card .flip-card-front, .card .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+.card .flip-card-front {
+    color: rgb(255, 255, 255);
+	padding: 1rem;
+	align-items: flex-start;
+	justify-content: flex-start;
+    background-color: #282c34;
+    background: linear-gradient(
+		0deg,
+		rgba(40, 44, 52, 1) 0%,
+		rgba(81, 64, 96, 0.5) 100%
+	);
+}
+.card .flip-card-back {
+    background-color: #282c34;
+    background: linear-gradient(
+		0deg,
+		rgba(40, 44, 52, 1) 0%,
+		rgba(81, 64, 96, 0.5) 100%
+	);
+    color: rgb(255, 255, 255);
+    transform: rotateY(180deg);
+}
+.flip-card-front p{
+	font-size: 1rem;
+	font-weight: lighter;
+	text-align: start;
+}
+.flip-card-front img{
+	margin-top: 2.9rem;
+	width: 2.5rem !important;
+	height: 2.5rem !important;
+}
+.quoteRight{
+	margin-top: 0 !important;
+	margin-left: auto;
+}
+.flip-card-front h2,p{
+	padding-left: 1rem;
+}
+.card .img {
+    background: #8b53ff;
+    height: 148px;
+    width: 148px;
+    border-radius: 50%;
+}
+.card .img img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+}
+.card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 5px 0;
+}
+.card > span {
+    color: #6a6d78;
+	font-weight: lighter;
+    font-size: 1rem !important;
+}
+.starRating {
+  color: #fffb18;
+  margin: 0 auto;
+  margin-top: 2rem;
+  font-size: 1.8em;
+  text-align: center;
+  z-index: 10;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}
